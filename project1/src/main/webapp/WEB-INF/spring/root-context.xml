@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://mybatis.org/schema/mybatis-spring
+		http://mybatis.org/schema/mybatis-spring.xsd">
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
@@ -11,5 +19,20 @@
 		<property name="username" value="mino"></property>
 		<property name="password" value="0000"></property>
 	</bean>
+	
+	<mybatis-spring:sqlSessionFactory id="sqlSessionFactory" 
+                                      dataSource="dataSource">
+        <mybatis-spring:configuration>
+            <mybatis-spring:settings>
+                <!-- MyBatis 설정 추가 -->
+            </mybatis-spring:settings>
+        </mybatis-spring:configuration>
+    </mybatis-spring:sqlSessionFactory>
+    
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+	
+	<mybatis-spring:scan base-package="com.mino.project1.mapper" />
 	
 </beans>
