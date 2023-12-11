@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mino.project1.mapper.UserMapper">
+	<!-- <resultMap id="userInfo" class="/com/mino/project1/vo/userInfo"
+		<result property=""></result>
+	</resultMap> -->
+	
+	<select id="getUserList" resultType="java.util.HashMap">
+		SELECT * FROM USER
+	</select>
+	
+</mapper>

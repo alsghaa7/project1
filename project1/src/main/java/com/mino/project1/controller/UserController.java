@@ -1,12 +1,13 @@
 package com.mino.project1.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import com.mino.project1.vo.*;
-import com.mino.project1.serviceimpl.*;
+import com.mino.project1.service.UserService;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,25 +18,21 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class UserController {
 	
-	  @Autowired(required=false)
-	  private UserServiceImpl userService;
-	  
-	  @ResponseBody
-	  @RequestMapping(value = "/test", method = RequestMethod.GET) 
-	  public Map<String, Object> test() {
-		  System.out.print("------1----");
-		  Map<String, Object> map = new HashMap<>();
-		  System.out.print("-----2-----");
-		  List<UserInfo> users = userService.getUserList();
-		  System.out.print("------3----");
-		  map.put("list", users);
-		  if (users == null) {
-			  System.out.print("null");
-		  } else {
-			  System.out.print(users);
-		  }
-		  
-		  return map; 
-	  }
-	  
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
+	
+	@Autowired
+	private UserService userService;
+	
+	@ResponseBody
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public List<Map<String, String>> getUserList(Model model) {
+		logger.info("[ UserController /test ]");
+//		List<UserInfo> users = userService.getUserList();
+		List<Map<String, String>> users = userService.getUserList();
+		
+		logger.info("Users: {}", users);
+		
+		return users;
+	}
+
 }

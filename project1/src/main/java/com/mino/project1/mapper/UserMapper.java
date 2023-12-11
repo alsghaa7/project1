@@ -6,13 +6,13 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import com.mino.project1.vo.*;
+import java.util.Map;
 
+import com.mino.project1.vo.*;
 
 @Mapper
 public interface UserMapper {
 	
-	  @Select("select * from user") 
-	  public List<UserInfo> getUserList();
-	 
+	public List<Map<String, String>> getUserList();
+//	public List<UserInfo> getUserList();
 }
