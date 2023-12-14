@@ -1,6 +1,7 @@
 package com.mino.project1.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ import com.mino.project1.vo.*;
 @Mapper
 public interface UserMapper {
 	
-	public List<Map<String, String>> getUserList();
-//	public List<UserInfo> getUserList();
+//	public List<Map<String, String>> getUserList();
+	public List<UserInfo> getUserList();
+	
+	public UserInfo loginChk(UserInfo User);
+	
 }

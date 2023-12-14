@@ -9,5 +9,5 @@ public class UserInfo {
 	private int user_id;
 	private String user_name;
 	private String user_num;
-	private String user_pwsd;
+	private String user_pswd;
 }

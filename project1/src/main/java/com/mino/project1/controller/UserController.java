@@ -25,10 +25,10 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public List<Map<String, String>> getUserList(Model model) {
+	public List<UserInfo> getUserList(Model model) {
 		logger.info("[ UserController /test ]");
-//		List<UserInfo> users = userService.getUserList();
-		List<Map<String, String>> users = userService.getUserList();
+		List<UserInfo> users = userService.getUserList();
+//		List<Map<String, String>> users = userService.getUserList();
 		
 		logger.info("Users: {}", users);
 		
