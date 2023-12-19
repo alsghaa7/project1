@@ -13,9 +13,9 @@
 		SELECT * FROM USER
 	</select>
 	
-	<select id="loginChk" resultType="UserInfo">
+	<select id="loginChk" resultType="HashMap">
 		select * from user
-		where user_id=#{user_id} and user_pswd=#{user_pswd}
+		where user_id=${user_id} and user_pswd=${user_pswd}
 	</select>
 	
 </mapper>

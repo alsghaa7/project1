@@ -17,8 +17,8 @@
 	
 	function loginChk() {
 		const userInfo = {
-			id: $('#user_id').val(),
-			pswd: $('#user_pswd').val()
+			user_id: $('#user_id').val(),
+			user_pswd: $('#user_pswd').val()
 		}
 		
 		const userJson = JSON.stringify(userInfo);

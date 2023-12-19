@@ -4,12 +4,9 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>login_chk</title>
+<title>main</title>
 </head>
 <body>
-<h1>
-	Login Check
-</h1>
 
 </body>
 </html>

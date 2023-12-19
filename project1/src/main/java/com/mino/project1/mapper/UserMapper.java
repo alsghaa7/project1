@@ -17,6 +17,6 @@ public interface UserMapper {
 //	public List<Map<String, String>> getUserList();
 	public List<UserInfo> getUserList();
 	
-	public UserInfo loginChk(UserInfo User);
+	public Map<String, String> loginChk(Map<String, String> userInfo);
 	
 }

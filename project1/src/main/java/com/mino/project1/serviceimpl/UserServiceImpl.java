@@ -29,12 +29,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserInfo loginChk(UserInfo User) {
+	public Map<String, String> loginChk(Map<String, String> userInfo) {
 		logger.info("[ UserServiceImpl loginChk ]");
-		System.out.println(usermapper.getUserList());
 		
-		
-		return usermapper.loginChk(User);
+		return usermapper.loginChk(userInfo);
 	}
 
 }
